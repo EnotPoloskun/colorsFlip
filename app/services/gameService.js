@@ -24,7 +24,7 @@ class GameService {
 
     for(var i = row + 1; i < this.fieldSize; i++) {
       if (this.field[i][column] !== 0) {
-        this.field[i][column] = this.field[i][column] % this.colors.length + 1
+        this.field[i][column] = this.field[i][column] % this.colors.length + 1;
       } else {
         break;
       }
@@ -32,13 +32,13 @@ class GameService {
 
     for(var i = row - 1; i >= 0; i--) {
       if (this.field[i][column] !== 0) {
-        this.field[i][column] = this.field[i][column] % this.colors.length + 1
+        this.field[i][column] = this.field[i][column] % this.colors.length + 1;
       } else {
         break;
       }
     }
 
-    return [...this.field]
+    return this;
   }
 
   undoTurn(row, column) {
@@ -74,7 +74,28 @@ class GameService {
       }
     }
 
-    return [...this.field]
+    return this;
+  }
+
+  isGameSolved(goal) {
+    for(var i = 0; i < this.fieldSize; i++) {
+      for(var j = 0; j < this.fieldSize; j++) {
+        if (this.field[i][j] == 0) {
+          continue;
+        }
+
+        if (!goal) {
+          goal = this.field[i][j]
+          continue
+        }
+
+        if (goal != this.field[i][j]) {
+          return false
+        }
+      }
+    }
+
+    return true
   }
 }
 
