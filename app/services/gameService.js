@@ -1,101 +1,99 @@
 class GameService {
-  constructor(fieldSize, field, colors) {
-    this.field = field
-    this.colors = colors
-    this.fieldSize = fieldSize
-  }
+  static makeTurn(initialField, colors, row, column) {
+    let field = initialField.map((row) => { return [...row] });
 
-  makeTurn(row, column) {
-    for(var i = column; i < this.fieldSize; i++) {
-      if (this.field[row][i] !== 0) {
-        this.field[row][i] = this.field[row][i] % this.colors.length + 1;
+    for(var i = column; i < field.length; i++) {
+      if (field[row][i] !== 0) {
+        field[row][i] = field[row][i] % colors.length + 1;
       } else {
         break;
       }
     }
 
     for(var i = column - 1; i >= 0; i--) {
-      if (this.field[row][i] !== 0) {
-        this.field[row][i] = this.field[row][i] % this.colors.length + 1;
+      if (field[row][i] !== 0) {
+        field[row][i] = field[row][i] % colors.length + 1;
       } else {
         break;
       }
     }
 
-    for(var i = row + 1; i < this.fieldSize; i++) {
-      if (this.field[i][column] !== 0) {
-        this.field[i][column] = this.field[i][column] % this.colors.length + 1;
+    for(var i = row + 1; i < field.length; i++) {
+      if (field[i][column] !== 0) {
+        field[i][column] = field[i][column] % colors.length + 1;
       } else {
         break;
       }
     }
 
     for(var i = row - 1; i >= 0; i--) {
-      if (this.field[i][column] !== 0) {
-        this.field[i][column] = this.field[i][column] % this.colors.length + 1;
+      if (field[i][column] !== 0) {
+        field[i][column] = field[i][column] % colors.length + 1;
       } else {
         break;
       }
     }
 
-    return this;
+    return field;
   }
 
-  undoTurn(row, column) {
-    for(var i = column; i < this.fieldSize; i++) {
-      if (this.field[row][i] !== 0) {
-        this.field[row][i] = (this.field[i][column] - 1) || this.colors.length;
+  static undoTurn(initialField, colors, row, column) {
+    let field = initialField.map((row) => { return [...row] });
+
+    for(var i = column; i < field.length; i++) {
+      if (field[row][i] !== 0) {
+        field[row][i] = (field[i][column] - 1) || colors.length;
       } else {
         break;
       }
     }
 
     for(var i = column - 1; i >= 0; i--) {
-      if (this.field[row][i] !== 0) {
-        this.field[row][i] = (this.field[i][column] - 1) || this.colors.length;
+      if (field[row][i] !== 0) {
+        field[row][i] = (field[i][column] - 1) || colors.length;
       } else {
         break;
       }
     }
 
-    for(var i = row + 1; i < this.fieldSize; i++) {
-      if (this.field[i][column] !== 0) {
-        this.field[i][column] = (this.field[i][column] - 1) || this.colors.length;
+    for(var i = row + 1; i < field.length; i++) {
+      if (field[i][column] !== 0) {
+        field[i][column] = (field[i][column] - 1) || colors.length;
       } else {
         break;
       }
     }
 
     for(var i = row - 1; i >= 0; i--) {
-      if (this.field[i][column] !== 0) {
-        this.field[i][column] = (this.field[i][column] - 1) || this.colors.length;
+      if (field[i][column] !== 0) {
+        field[i][column] = (field[i][column] - 1) || colors.length;
       } else {
         break;
       }
     }
 
-    return this;
+    return field;
   }
 
-  isGameSolved(goal) {
-    for(var i = 0; i < this.fieldSize; i++) {
-      for(var j = 0; j < this.fieldSize; j++) {
-        if (this.field[i][j] == 0) {
+  static isGameSolved(field, goal) {
+    for(var i = 0; i < field.length; i++) {
+      for(var j = 0; j < field.length; j++) {
+        if (field[i][j] == 0) {
           continue;
         }
 
         if (!goal) {
-          goal = this.field[i][j]
-          continue
+          goal = field[i][j];
+          continue;
         }
 
-        if (goal != this.field[i][j]) {
-          return false
+        if (goal != field[i][j]) {
+          return false;
         }
       }
     }
 
-    return true
+    return true;
   }
 }
 

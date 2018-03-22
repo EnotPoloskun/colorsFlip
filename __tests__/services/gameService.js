@@ -14,7 +14,7 @@ describe("makeTurn", () => {
   ];
 
   it("should make turn", () => {
-    expect(new GameService(3, field, [1, 2, 3]).makeTurn(1, 1).field).toEqual(expectedField);
+    expect(GameService.makeTurn(field, [1, 2, 3], 1, 1)).toEqual(expectedField);
   });
 });
 
@@ -32,7 +32,7 @@ describe("undoTurn", () => {
   ];
 
   it("should undo turn", () => {
-    expect(new GameService(3, field, [1, 2, 3]).undoTurn(1, 1).field).toEqual(expectedField);
+    expect(GameService.undoTurn(field, [1, 2, 3], 1, 1)).toEqual(expectedField);
   });
 });
 
@@ -46,7 +46,7 @@ describe("isGameSolved", () => {
       ];
 
       it("should be falsey", () => {
-        expect(new GameService(3, field, [1, 2, 3]).isGameSolved()).toEqual(false);
+        expect(GameService.isGameSolved(field)).toEqual(false);
       });
     });
 
@@ -58,7 +58,7 @@ describe("isGameSolved", () => {
       ];
 
       it("should be truthy", () => {
-        expect(new GameService(3, field, [1, 2, 3]).isGameSolved()).toEqual(true);
+        expect(GameService.isGameSolved(field)).toEqual(true);
       });
     });
   });
@@ -72,13 +72,13 @@ describe("isGameSolved", () => {
 
     describe("goal is not satisfied", () => {
       it("should be falsey", () => {
-        expect(new GameService(3, field, [1, 2, 3]).isGameSolved(2)).toEqual(false);
+        expect(GameService.isGameSolved(field, 2)).toEqual(false);
       });
     });
 
     describe("goal is satisfied", () => {
       it("should be truthy", () => {
-        expect(new GameService(3, field, [1, 2, 3]).isGameSolved(1)).toEqual(true);
+        expect(GameService.isGameSolved(field, 1)).toEqual(true);
       });
     });
   });
