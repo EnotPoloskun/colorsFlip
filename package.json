@@ -7,11 +7,12 @@
     "test": "jest"
   },
   "dependencies": {
+    "deep-freeze": "0.0.1",
+    "prop-types": "^15.6.1",
     "react": "^16.3.0-alpha.1",
     "react-native": "0.54.1",
     "react-redux": "^5.0.7",
-    "redux": "^3.7.2",
-    "deep-freeze": "0.0.1"
+    "redux": "^3.7.2"
   },
   "devDependencies": {
     "babel-jest": "22.4.1",

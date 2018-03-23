@@ -5,6 +5,10 @@
  */
 
 import React, { Component } from 'react';
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import GameField from "./app/containers/gameField"
+import reducer from "./app/reducers/field";
 import {
   Platform,
   StyleSheet,
@@ -13,28 +17,33 @@ import {
   StatusBar,
 } from 'react-native';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
-
 type Props = {};
+let initialState = {
+  field: [
+    [1, 1, 1],
+    [1, 1, 1],
+    [1, 1, 1]
+  ],
+  colors: [1, 2, 3]
+}
+
+let store = createStore(reducer, initialState)
+
+let container = {
+  flex: 1,
+  alignItems: 'center',
+  justifyContent: 'center',
+  backgroundColor: '#2c3e50',
+}
+
 export default class App extends Component<Props> {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
-      </View>
+      <Provider store={store}>
+        <View style={container}>
+          <GameField style={container}/>
+        </View>
+      </Provider>
     );
   }
 }
