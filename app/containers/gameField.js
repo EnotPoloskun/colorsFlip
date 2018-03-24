@@ -3,8 +3,6 @@ import { makeTurn } from '../actions/field'
 import Field from '../components/field'
  
 const mapStateToProps = (state) => {
-  console.log(state)
-
   return {
     field: state.field
   }

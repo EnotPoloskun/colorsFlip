@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
-const Dimensions = require('Dimensions');
+import { StyleSheet } from 'react-native'
+const Dimensions = require('Dimensions')
 
 export default StyleSheet.create({
   field: {
@@ -12,4 +12,4 @@ export default StyleSheet.create({
     borderWidth: 2,
     borderColor: "#ecf0f1",
   },
-});
+})

@@ -1,16 +1,16 @@
-import deepFreeze from "deep-freeze";
-import reducer from "../../app/reducers/field";
+import deepFreeze from "deep-freeze"
+import reducer from "../../app/reducers/field"
 import {
   MAKE_TURN,
   UNDO_TURN,
-} from "../../app/actions/field";
+} from "../../app/actions/field"
 
 describe("MAKE_TURN action", () => {
   const action = {
     type: MAKE_TURN,
     row: 1,
     column: 1,
-  };
+  }
 
   it("should handle MAKE_TURN", () => {
     const initialState = {
@@ -20,10 +20,11 @@ describe("MAKE_TURN action", () => {
         [1, 1, 1],
         [1, 1, 1],
       ],
-      isGameSolved: false
-    };
+      isGameSolved: false,
+      history: []
+    }
 
-    let state = reducer(deepFreeze(initialState), action);
+    let state = reducer(deepFreeze(initialState), action)
 
     expect(state).toEqual({
       ...initialState,
@@ -31,9 +32,10 @@ describe("MAKE_TURN action", () => {
         [1, 2, 1],
         [2, 2, 2],
         [1, 2, 1],
-      ]
-    });
-  });
+      ],
+      history: [{row: 1, column: 1}]
+    })
+  })
 
   it("should handle MAKE_TURN and solve game", () => {
     const initialState = {
@@ -43,10 +45,11 @@ describe("MAKE_TURN action", () => {
         [3, 3, 3],
         [1, 3, 1]
       ],
-      isGameSolved: false
+      isGameSolved: false,
+      history: []
     }
 
-    let state = reducer(deepFreeze(initialState), action);
+    let state = reducer(deepFreeze(initialState), action)
 
     expect(state).toEqual({
       ...initialState,
@@ -55,18 +58,17 @@ describe("MAKE_TURN action", () => {
         [1, 1, 1],
         [1, 1, 1],
       ],
-      isGameSolved: true
-    });
-  });
-});
+      isGameSolved: true,
+      history: [{row: 1, column: 1}]
+    })
+  })
+})
 
 describe("UNDO_TURN action", () => {
   it("should handle UNDO_TURN", () => {
     const action = {
       type: UNDO_TURN,
-      row: 1,
-      column: 1,
-    };
+    }
 
     const initialState = {
       colors: [1, 2, 3],
@@ -75,9 +77,10 @@ describe("UNDO_TURN action", () => {
         [3, 3, 3],
         [1, 3, 1]
       ],
+      history: [{row: 1, column: 1}]
     }
 
-    let state = reducer(deepFreeze(initialState), action);
+    let state = reducer(deepFreeze(initialState), action)
 
     expect(state).toEqual({
       ...initialState,
@@ -86,6 +89,7 @@ describe("UNDO_TURN action", () => {
         [2, 2, 2],
         [1, 2, 1],
       ],
-    });
-  });
-});
+      history: []
+    })
+  })
+})

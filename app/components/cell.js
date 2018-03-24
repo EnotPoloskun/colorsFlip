@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
-import { View, TouchableWithoutFeedback, Animated, Easing } from 'react-native';
+import { View, TouchableWithoutFeedback, Animated, Easing } from 'react-native'
 import styles from "../styles/cell"
 
 const COLORS = ["green", "red", "yellow"]
@@ -14,7 +14,7 @@ class Cell extends Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.color != this.props.color) {
-      this.animate();
+      this.animate()
     }
   }
 
@@ -30,7 +30,6 @@ class Cell extends Component {
   }
 
   render() {
-
     const movingMargin = this.animatedValue.interpolate({
       inputRange: [0, 0.5, 1],
       outputRange: [0, 3, 0]
@@ -51,4 +50,4 @@ Cell.propTypes = {
   color: PropTypes.number.isRequired,
 }
  
-export default Cell;
+export default Cell

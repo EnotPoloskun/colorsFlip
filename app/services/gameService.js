@@ -1,100 +1,100 @@
 class GameService {
   static makeTurn(initialField, colors, row, column) {
-    let field = initialField.map((row) => { return [...row] });
+    let field = initialField.map((row) => { return [...row] })
 
     for(var i = column; i < field.length; i++) {
       if (field[row][i] !== 0) {
-        field[row][i] = field[row][i] % colors.length + 1;
+        field[row][i] = field[row][i] % colors.length + 1
       } else {
-        break;
+        break
       }
     }
 
     for(var i = column - 1; i >= 0; i--) {
       if (field[row][i] !== 0) {
-        field[row][i] = field[row][i] % colors.length + 1;
+        field[row][i] = field[row][i] % colors.length + 1
       } else {
-        break;
+        break
       }
     }
 
     for(var i = row + 1; i < field.length; i++) {
       if (field[i][column] !== 0) {
-        field[i][column] = field[i][column] % colors.length + 1;
+        field[i][column] = field[i][column] % colors.length + 1
       } else {
-        break;
+        break
       }
     }
 
     for(var i = row - 1; i >= 0; i--) {
       if (field[i][column] !== 0) {
-        field[i][column] = field[i][column] % colors.length + 1;
+        field[i][column] = field[i][column] % colors.length + 1
       } else {
-        break;
+        break
       }
     }
 
-    return field;
+    return field
   }
 
   static undoTurn(initialField, colors, row, column) {
-    let field = initialField.map((row) => { return [...row] });
+    let field = initialField.map((row) => { return [...row] })
 
     for(var i = column; i < field.length; i++) {
       if (field[row][i] !== 0) {
-        field[row][i] = (field[i][column] - 1) || colors.length;
+        field[row][i] = (field[i][column] - 1) || colors.length
       } else {
-        break;
+        break
       }
     }
 
     for(var i = column - 1; i >= 0; i--) {
       if (field[row][i] !== 0) {
-        field[row][i] = (field[i][column] - 1) || colors.length;
+        field[row][i] = (field[i][column] - 1) || colors.length
       } else {
-        break;
+        break
       }
     }
 
     for(var i = row + 1; i < field.length; i++) {
       if (field[i][column] !== 0) {
-        field[i][column] = (field[i][column] - 1) || colors.length;
+        field[i][column] = (field[i][column] - 1) || colors.length
       } else {
-        break;
+        break
       }
     }
 
     for(var i = row - 1; i >= 0; i--) {
       if (field[i][column] !== 0) {
-        field[i][column] = (field[i][column] - 1) || colors.length;
+        field[i][column] = (field[i][column] - 1) || colors.length
       } else {
-        break;
+        break
       }
     }
 
-    return field;
+    return field
   }
 
   static isGameSolved(field, goal) {
     for(var i = 0; i < field.length; i++) {
       for(var j = 0; j < field.length; j++) {
         if (field[i][j] == 0) {
-          continue;
+          continue
         }
 
         if (!goal) {
-          goal = field[i][j];
-          continue;
+          goal = field[i][j]
+          continue
         }
 
         if (goal != field[i][j]) {
-          return false;
+          return false
         }
       }
     }
 
-    return true;
+    return true
   }
 }
 
-export default GameService;
+export default GameService

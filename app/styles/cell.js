@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
   cell: {
@@ -22,4 +22,4 @@ export default StyleSheet.create({
   yellow: {
     backgroundColor: "#f1c40f",
   },
-});
+})

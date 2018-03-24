@@ -24,7 +24,8 @@ let initialState = {
     [1, 1, 1],
     [1, 1, 1]
   ],
-  colors: [1, 2, 3]
+  colors: [1, 2, 3],
+  history: [],
 }
 
 let store = createStore(reducer, initialState)

@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
   row: {
@@ -7,4 +7,4 @@ export default StyleSheet.create({
     justifyContent: 'space-around',
     flexWrap: 'wrap',
   },
-});
+})

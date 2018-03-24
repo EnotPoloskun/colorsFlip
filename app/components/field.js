@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { View } from 'react-native';
+import { View } from 'react-native'
 import styles from "../styles/field"
 import Row from "./row"
  
@@ -21,4 +21,4 @@ Field.propTypes = {
   field: PropTypes.array.isRequired,
 }
  
-export default Field;
+export default Field

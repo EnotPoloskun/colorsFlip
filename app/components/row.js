@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { View } from 'react-native';
+import { View } from 'react-native'
 import styles from "../styles/row"
 import Cell from "./cell"
  
@@ -21,4 +21,4 @@ Row.propTypes = {
   row: PropTypes.array.isRequired,
 }
  
-export default Row;
+export default Row
