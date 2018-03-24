@@ -4,6 +4,10 @@ export default StyleSheet.create({
   cell: {
     margin: 5,
     flex: 1,
+  },
+
+  content: {
+    flex: 1,
     borderRadius: 5,
   },
 
