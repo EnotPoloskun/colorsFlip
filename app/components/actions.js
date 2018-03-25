@@ -4,10 +4,13 @@ import { View, Text } from 'react-native'
 import styles from "../styles/actions"
 import Action from "./action"
  
-const Actions = ({ undoTurn, history }) => (
+const Actions = ({ undoTurn, restartGame, history }) => (
   <View style={styles.actions}>
     <Action action={undoTurn} disabled={history.length == 0}>
       <Text style={styles.action}>&#xf0e2;</Text>
+    </Action>
+    <Action action={restartGame}>
+      <Text style={styles.action}>&#xf021;</Text>
     </Action>
   </View>
 )

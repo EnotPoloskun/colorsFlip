@@ -20,6 +20,12 @@ import {
 
 type Props = {};
 let initialState = {
+  initialField: [
+    [1, 1, 1, 1],
+    [1, 1, 1, 1],
+    [1, 1, 1, 1],
+    [1, 1, 1, 1]
+  ],
   field: [
     [1, 1, 1, 1],
     [1, 1, 1, 1],

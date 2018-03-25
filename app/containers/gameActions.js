@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { undoTurn } from '../actions/field'
+import { undoTurn, restart } from '../actions/field'
 import Actions from '../components/actions'
  
 const mapStateToProps = (state) => {
@@ -9,7 +9,8 @@ const mapStateToProps = (state) => {
 }
  
 const mapDispatchToProps = (dispatch) => ({
-  undoTurn: () => dispatch(undoTurn())
+  undoTurn: () => dispatch(undoTurn()),
+  restartGame: () => dispatch(restart()),
 })
  
 export default connect(

@@ -2,6 +2,7 @@ import GameService from "../services/gameService"
 import {
   MAKE_TURN,
   UNDO_TURN,
+  RESTART,
 } from "../actions/field"
 
 const makeTurn = (state, action) => {
@@ -29,9 +30,16 @@ const undoTurn = (state, action) => {
   }
 }
 
+const restart = (state, action) => ({
+  ...state,
+  field: state.initialField.map((row) => { return [...row] }),
+  history: []
+})
+
 const ACTION_HANDLERS = {
   [MAKE_TURN] : makeTurn,
   [UNDO_TURN] : undoTurn,
+  [RESTART] : restart
 }
 
 const reducer = (state = {}, action) => {
