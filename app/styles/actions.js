@@ -9,7 +9,13 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     flexWrap: 'wrap',
-    backgroundColor: "#f1c40f",
     padding: 10,
+  },
+
+  action: {
+    fontFamily: 'FontAwesome',
+    fontSize: 50,
+    textAlign: 'center',
+    color: "#f5f6fa"
   }
 })

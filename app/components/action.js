@@ -1,11 +1,13 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { View, TouchableHighlight } from 'react-native'
+import { View, TouchableHighlight, Text } from 'react-native'
 import styles from "../styles/action"
  
-const Action = ({ action, disabled }) => (
+const Action = ({ action, disabled, children }) => (
   <TouchableHighlight onPress={action} disabled={disabled}>
-    <View style={styles.action}/>
+    <View style={styles.action}>
+      {children}
+    </View>
   </TouchableHighlight>
 )
  

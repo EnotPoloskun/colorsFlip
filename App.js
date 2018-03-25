@@ -44,6 +44,7 @@ export default class App extends Component<Props> {
     return (
       <Provider store={store}>
         <View style={container}>
+          <StatusBar hidden={true} />
           <GameField/>
           <GameActions/>
         </View>
