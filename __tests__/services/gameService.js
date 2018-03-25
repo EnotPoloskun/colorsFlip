@@ -8,13 +8,13 @@ describe("makeTurn", () => {
   ];
 
   let expectedField = [
-    [3, 1, 3],
     [1, 1, 1],
-    [3, 1, 3]
+    [3, 3, 1],
+    [3, 3, 1]
   ];
 
   it("should make turn", () => {
-    expect(GameService.makeTurn(field, [1, 2, 3], 1, 1)).toEqual(expectedField);
+    expect(GameService.makeTurn(field, [1, 2, 3], 0, 2)).toEqual(expectedField);
   });
 });
 
@@ -26,13 +26,13 @@ describe("undoTurn", () => {
   ];
 
   let expectedField = [
-    [1, 3, 1],
     [3, 3, 3],
-    [1, 3, 1]
+    [1, 1, 3],
+    [1, 1, 3]
   ];
 
   it("should undo turn", () => {
-    expect(GameService.undoTurn(field, [1, 2, 3], 1, 1)).toEqual(expectedField);
+    expect(GameService.undoTurn(field, [1, 2, 3], 0, 2)).toEqual(expectedField);
   });
 });
 

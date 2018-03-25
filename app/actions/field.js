@@ -7,6 +7,6 @@ export const makeTurn = (row, column) => ({
   column,
 })
 
-export const undoTurn = (row, column) => ({
+export const undoTurn = () => ({
   type: UNDO_TURN
 })

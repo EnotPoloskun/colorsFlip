@@ -42,7 +42,7 @@ class GameService {
 
     for(var i = column; i < field.length; i++) {
       if (field[row][i] !== 0) {
-        field[row][i] = (field[i][column] - 1) || colors.length
+        field[row][i] = (field[row][i] - 1) || colors.length
       } else {
         break
       }
@@ -50,7 +50,7 @@ class GameService {
 
     for(var i = column - 1; i >= 0; i--) {
       if (field[row][i] !== 0) {
-        field[row][i] = (field[i][column] - 1) || colors.length
+        field[row][i] = (field[row][i] - 1) || colors.length
       } else {
         break
       }
