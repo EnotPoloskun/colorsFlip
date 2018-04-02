@@ -3,6 +3,8 @@ import {
   MAKE_TURN,
   UNDO_TURN,
   RESTART,
+  HIGHLIGHT,
+  DISABLE_USER_EVENTS
 } from "../actions/field"
 
 const makeTurn = (state, action) => {
@@ -36,10 +38,30 @@ const restart = (state, action) => ({
   history: []
 })
 
+const highlight = (state, action) => {
+  let highlighted;
+
+  if (action.row != undefined) {
+    highlighted = { row: action.row, column: action.column }
+  }
+
+  return {
+    ...state,
+    highlighted
+  }
+}
+
+const disableUserEvents = (state, action) => ({
+  ...state,
+  userEventsDisabled: action.disabled
+})
+
 const ACTION_HANDLERS = {
   [MAKE_TURN] : makeTurn,
   [UNDO_TURN] : undoTurn,
-  [RESTART] : restart
+  [RESTART] : restart,
+  [HIGHLIGHT] : highlight,
+  [DISABLE_USER_EVENTS] : disableUserEvents
 }
 
 const reducer = (state = {}, action) => {

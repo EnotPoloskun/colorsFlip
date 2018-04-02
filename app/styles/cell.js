@@ -6,9 +6,21 @@ export default StyleSheet.create({
     flex: 1,
   },
 
+  highlighted: {
+    flex: 1,
+    backgroundColor: "#FFF",
+    zIndex: 10,
+    opacity: 0.4,
+    borderRadius: 5,
+  },
+
   content: {
     flex: 1,
     borderRadius: 5,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    flexWrap: 'wrap',
+
   },
 
   green: {

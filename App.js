@@ -5,7 +5,8 @@
  */
 
 import React, { Component } from 'react';
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 import GameField from "./app/containers/gameField"
 import GameActions from "./app/containers/gameActions"
@@ -34,9 +35,12 @@ let initialState = {
   ],
   colors: [1, 2, 3],
   history: [],
+  solution: [{row: 1, column: 1}, { row: 2, column: 2 }, { row: 0, column: 0}],
+  highlighted: undefined,
+  userEventsDisabled: false
 }
 
-let store = createStore(reducer, initialState)
+let store = createStore(reducer, initialState, applyMiddleware(thunk))
 
 let container = {
   flex: 1,

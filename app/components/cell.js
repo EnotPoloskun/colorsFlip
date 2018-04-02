@@ -38,7 +38,9 @@ class Cell extends Component {
     return (
       <TouchableWithoutFeedback onPress={this.props.onClick}>
         <View style={styles.cell}>
-          <Animated.View style={[{ margin: movingMargin }, styles.content, styles[COLORS[this.props.color - 1]]]}/>
+          <Animated.View style={[{ margin: movingMargin }, styles.content, styles[COLORS[this.props.color - 1]]]}>
+            {this.props.highlighted && <View style={styles.highlighted}/>}
+          </Animated.View>
         </View>
       </TouchableWithoutFeedback>
     )
@@ -48,6 +50,7 @@ class Cell extends Component {
 Cell.propTypes = {
   onClick: PropTypes.func.isRequired,
   color: PropTypes.number.isRequired,
+  highlighted: PropTypes.bool.isRequired
 }
  
 export default Cell

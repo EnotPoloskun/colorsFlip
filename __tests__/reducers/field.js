@@ -4,6 +4,8 @@ import {
   MAKE_TURN,
   UNDO_TURN,
   RESTART,
+  HIGHLIGHT,
+  DISABLE_USER_EVENTS
 } from "../../app/actions/field"
 
 describe("MAKE_TURN action", () => {
@@ -128,4 +130,58 @@ describe("RESTART action", () => {
       history: []
     })
   })
+})
+
+describe("HIGHLIGHT action", () => {
+  const initialState = {
+    highlighted: { row: 1, column: 1 }
+  }
+
+  it("should handle HIGHLIGHT with row and column", () => {
+    const action = {
+      type: HIGHLIGHT,
+      row: 2,
+      column: 2
+    }
+
+    let state = reducer(deepFreeze(initialState), action)
+
+    expect(state).toEqual({
+      ...initialState,
+      highlighted: { row: 2, column: 2 }
+    })
+  })
+
+  it("should handle HIGHLIGHT without row and column", () => {
+    const action = {
+      type: HIGHLIGHT,
+    }
+
+    let state = reducer(deepFreeze(initialState), action)
+
+    expect(state).toEqual({
+      ...initialState,
+      highlighted: undefined
+    })
+  })
+})
+
+describe("DISABLE_USER_EVENTS", () => {
+  const initialState = {
+    userEventsDisabled: false
+  }
+
+  it("should handle DISABLE_USER_EVENTS", () => {
+    const action = {
+      type: DISABLE_USER_EVENTS,
+      disabled: true
+    }
+
+    let state = reducer(deepFreeze(initialState), action)
+
+    expect(state).toEqual({
+      ...initialState,
+      userEventsDisabled: true
+    })
+   })
 })
