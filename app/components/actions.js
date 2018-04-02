@@ -4,15 +4,15 @@ import { View, Text } from 'react-native'
 import styles from "../styles/actions"
 import Action from "./action"
  
-const Actions = ({ undoTurn, restartGame, solveGame, history }) => (
+const Actions = ({ undoTurn, restartGame, solveGame, history, userEventsDisabled }) => (
   <View style={styles.actions}>
-    <Action action={undoTurn} disabled={history.length == 0}>
+    <Action action={undoTurn} disabled={history.length == 0 || userEventsDisabled}>
       <Text style={styles.action}>&#xf0e2;</Text>
     </Action>
-    <Action action={restartGame}>
+    <Action action={restartGame} disabled={userEventsDisabled}>
       <Text style={styles.action}>&#xf021;</Text>
     </Action>
-    <Action action={solveGame}>
+    <Action action={solveGame} disabled={userEventsDisabled}>
       <Text style={styles.action}>&#xf050;</Text>
     </Action>
   </View>
@@ -21,7 +21,8 @@ const Actions = ({ undoTurn, restartGame, solveGame, history }) => (
 Actions.propTypes = {
   undoTurn: PropTypes.func.isRequired,
   restartGame: PropTypes.func.isRequired,
-  solveGame: PropTypes.func.isRequired
+  solveGame: PropTypes.func.isRequired,
+  userEventsDisabled: PropTypes.bool.isRequired,
 }
  
 export default Actions
