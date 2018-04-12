@@ -10,14 +10,15 @@ import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 import GameField from "./app/containers/gameField"
 import GameActions from "./app/containers/gameActions"
-import reducer from "./app/reducers/field";
+import CompleteModal from "./app/components/completeModal"
+import reducer from "./app/reducers/field"
 import {
   Platform,
   StyleSheet,
   Text,
   View,
   StatusBar,
-} from 'react-native';
+} from 'react-native'
 
 type Props = {};
 let initialState = {
@@ -37,7 +38,8 @@ let initialState = {
   history: [],
   solution: [{row: 1, column: 1}, { row: 2, column: 2 }, { row: 0, column: 0}],
   highlighted: undefined,
-  userEventsDisabled: false
+  userEventsDisabled: false,
+  isGameSolved: false
 }
 
 let store = createStore(reducer, initialState, applyMiddleware(thunk))
@@ -55,6 +57,7 @@ export default class App extends Component<Props> {
       <Provider store={store}>
         <View style={container}>
           <StatusBar hidden={true} />
+          <CompleteModal />
           <GameField/>
           <GameActions/>
         </View>
