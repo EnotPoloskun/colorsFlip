@@ -23,7 +23,7 @@ CompleteModal.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    visible: state.isGameSolved,
+    visible: state.level.isGameSolved,
   }
 }
 

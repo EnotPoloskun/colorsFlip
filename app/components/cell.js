@@ -5,7 +5,6 @@ import styles from "../styles/cell"
 
 const COLORS = ["green", "red", "yellow"]
  
-
 class Cell extends Component {
   constructor() {
     super()

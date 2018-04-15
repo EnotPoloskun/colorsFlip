@@ -4,8 +4,8 @@ import Actions from '../components/actions'
  
 const mapStateToProps = (state) => {
   return {
-    history: state.history,
-    userEventsDisabled: state.userEventsDisabled
+    history: state.level.history,
+    userEventsDisabled: state.level.userEventsDisabled
   }
 }
  

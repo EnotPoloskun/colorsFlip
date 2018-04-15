@@ -4,8 +4,8 @@ import Field from '../components/field'
  
 const mapStateToProps = (state) => {
   return {
-    field: state.field,
-    highlighted: state.highlighted
+    field: state.level.field,
+    highlighted: state.level.highlighted
   }
 }
  
