@@ -1,3 +1,4 @@
+import { AsyncStorage } from 'react-native';
 import GameService from "../services/gameService"
 import levelsData from '../../levelsData.json';
 import {
@@ -11,6 +12,17 @@ import {
 
 const makeTurn = (state, action) => {
   let newField = GameService.makeTurn(state.field, state.colors, action.row, action.column)
+  let isGameSolved = GameService.isGameSolved(newField, state.goal)
+
+  if (isGameSolved) {
+    AsyncStorage.getItem('@LocalStore:lastSolvedRoundNumber')
+      .then((lastRoundNumber) => {
+        if (lastRoundNumber == null && state.levelNumber > JSON.parse(lastRoundNumber)) {
+          AsyncStorage.setItem('@LocalStore:lastSolvedRoundNumber', JSON.stringify(state.levelNumber))
+        }
+      })
+      .done()
+  }
 
   return {
     ...state,
