@@ -5,6 +5,12 @@ export default StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#151631',
+    backgroundColor: '#1b1b35',
   },
+
+  bottomBanner: {
+    backgroundColor: "#1b1b35",
+    position: "absolute",
+    bottom: 0,
+  }
 })

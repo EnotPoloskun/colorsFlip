@@ -5,7 +5,7 @@ import GameLevel from './gameLevel';
 const defaultNavigationStyles = {
   statusBarHidden: true,
   navBarHidden: true,
-  screenBackgroundColor: '#151631'
+  screenBackgroundColor: '#1b1b35'
 }
 
 const registerScreen = (name, component, store, Provider) => {

@@ -23,14 +23,18 @@ export default StyleSheet.create({
   },
 
   green: {
-    backgroundColor: '#47ab4d',
+    backgroundColor: '#6db55b',
   },
 
   red: {
-    backgroundColor: '#f06b66',
+    backgroundColor: '#f95f5f',
   },
 
   orange: {
-    backgroundColor: '#f38b33',
+    backgroundColor: '#ff8622',
   },
+
+  blue: {
+    backgroundColor: '#768be5'
+  }
 })

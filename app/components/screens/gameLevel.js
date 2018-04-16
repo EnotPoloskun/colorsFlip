@@ -1,12 +1,13 @@
-import React, { Component } from "react"
-import PropTypes from "prop-types"
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { View, StatusBar } from 'react-native'
 import { connect } from 'react-redux'
 import { loadLevel } from '../../actions/field'
-import styles from "../../styles/gameLevel"
-import GameField from "../../containers/gameField"
-import GameActions from "../../containers/gameActions"
-import CompleteModal from "../completeModal"
+import styles from '../../styles/gameLevel'
+import GameField from '../../containers/gameField'
+import GameActions from '../../containers/gameActions'
+import CompleteModal from '../completeModal'
+import { AdMobBanner } from 'react-native-admob'
 
 class GameLevel extends Component {
   componentWillMount() {
@@ -26,9 +27,16 @@ class GameLevel extends Component {
   render() {
     return (
       <View style={styles.gameLevel}>
+        <StatusBar hidden={true}/>
         <CompleteModal loadNextLevel={() => this.loadNextLevel()} />
         <GameField/>
         <GameActions/>
+        <AdMobBanner
+          style={styles.bottomBanner}
+          adSize='smartBannerPortrait'
+          adUnitID='ca-app-pub-3940256099942544/2934735716'
+          testDevices={[AdMobBanner.simulatorId]}
+        />
       </View>
     )
   }
