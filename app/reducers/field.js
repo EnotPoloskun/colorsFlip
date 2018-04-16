@@ -1,10 +1,12 @@
 import GameService from "../services/gameService"
+import levelsData from '../../levelsData.json';
 import {
   MAKE_TURN,
   UNDO_TURN,
   RESTART,
   HIGHLIGHT,
-  DISABLE_USER_EVENTS
+  DISABLE_USER_EVENTS,
+  LOAD_LEVEL
 } from "../actions/field"
 
 const makeTurn = (state, action) => {
@@ -56,12 +58,23 @@ const disableUserEvents = (state, action) => ({
   userEventsDisabled: action.disabled
 })
 
+const loadLevel = (state, action) => ({
+  ...levelsData[action.number],
+  initialField: levelsData[action.number].field.map((row) => { return [...row] }),
+  history: [],
+  highlighted: undefined,
+  userEventsDisabled: false,
+  isGameSolved: false,
+  levelNumber: action.number
+})
+
 const ACTION_HANDLERS = {
   [MAKE_TURN] : makeTurn,
   [UNDO_TURN] : undoTurn,
   [RESTART] : restart,
   [HIGHLIGHT] : highlight,
-  [DISABLE_USER_EVENTS] : disableUserEvents
+  [DISABLE_USER_EVENTS] : disableUserEvents,
+  [LOAD_LEVEL] : loadLevel
 }
 
 const reducer = (state = {}, action) => {

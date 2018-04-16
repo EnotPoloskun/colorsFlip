@@ -4,26 +4,29 @@ import { Text, TouchableOpacity, Modal } from 'react-native'
 import { connect } from 'react-redux'
 import styles from "../styles/completeModal"
  
-const CompleteModal = ({ visible }) => (
+const CompleteModal = ({ visible, levelNumber, loadNextLevel }) => (
   <Modal
     animationType="fade"
     transparent={true}
     visible={visible}
     style={{opacity: 0.9}}
   >
-    <TouchableOpacity onPress={() => { console.log("qwe")}} activeOpacity={0.8} style={styles.modal}>
+    <TouchableOpacity onPress={() => { loadNextLevel() }} activeOpacity={0.8} style={styles.modal}>
       <Text style={styles.icon}>&#xf00c;</Text>
     </TouchableOpacity>
   </Modal>
 )
  
 CompleteModal.propTypes = {
-  visible: PropTypes.bool.isRequired
+  visible: PropTypes.bool.isRequired,
+  levelNumber: PropTypes.number.isRequired,
+  loadNextLevel: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => {
   return {
     visible: state.level.isGameSolved,
+    levelNumber: state.level.levelNumber,
   }
 }
 

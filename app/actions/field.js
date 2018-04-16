@@ -3,6 +3,7 @@ export const UNDO_TURN = "UNDO_TURN"
 export const RESTART = "RESTART"
 export const HIGHLIGHT = "HIGHLIGHT"
 export const DISABLE_USER_EVENTS = "DISABLE_USER_EVENTS"
+export const LOAD_LEVEL = "LOAD_LEVEL"
 
 export const makeTurn = (row, column) => ({
   type: MAKE_TURN,
@@ -33,7 +34,7 @@ export const solveGame = () => (dispatch, getState) => {
   dispatch(disableUserEvents(true))
   dispatch(restart())
 
-  let solution = getState().solution
+  let solution = getState().level.solution
 
   setTimeout(() => {
     for (var i = 0; i < solution.length; i++) {
@@ -51,3 +52,8 @@ export const solveGame = () => (dispatch, getState) => {
     }, 500 * solution.length)
   }, 500)
 }
+
+export const loadLevel = (levelNumber) => ({
+  type: LOAD_LEVEL,
+  number: levelNumber
+})

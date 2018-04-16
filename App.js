@@ -19,6 +19,9 @@ export default class App extends Component<Props> {
     Navigation.startSingleScreenApp({
       screen: {
         screen: 'game.Level',
+      },
+      passProps: {
+        levelNumber: 0,
       }
     })
   }
