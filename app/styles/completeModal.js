@@ -5,12 +5,12 @@ export default StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'rgba(30,28,57,0.7)'
+    backgroundColor: 'rgba(30,28,57,0)'
   },
 
   icon: {
     fontSize: 100,
-    color: "#2ecc71",
+    color: "#fff",
     fontFamily: 'FontAwesome'
   }
 })

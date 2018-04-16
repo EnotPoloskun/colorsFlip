@@ -4,7 +4,7 @@ import { View } from 'react-native'
 import styles from "../styles/field"
 import Row from "./row"
  
-const Field = ({ onClick, field, highlighted }) => (
+const Field = ({ onClick, field, highlighted, isGameSolved }) => (
   <View style={styles.field}>
     {field.map((row, index) =>
       <Row
@@ -12,6 +12,7 @@ const Field = ({ onClick, field, highlighted }) => (
         row={row}
         rowIndex={index}
         highlighted={highlighted}
+        isGameSolved={isGameSolved}
         onClick={(column) => onClick(index, column)}
       />
     )}
@@ -21,7 +22,8 @@ const Field = ({ onClick, field, highlighted }) => (
 Field.propTypes = {
   onClick: PropTypes.func.isRequired,
   field: PropTypes.array.isRequired,
-  highlighted: PropTypes.object
+  highlighted: PropTypes.object,
+  isGameSolved: PropTypes.bool.isRequired,
 }
  
 export default Field

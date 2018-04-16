@@ -5,7 +5,8 @@ import Field from '../components/field'
 const mapStateToProps = (state) => {
   return {
     field: state.level.field,
-    highlighted: state.level.highlighted
+    highlighted: state.level.highlighted,
+    isGameSolved: state.level.isGameSolved
   }
 }
  
