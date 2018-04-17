@@ -11,6 +11,7 @@ export default StyleSheet.create({
   icon: {
     fontSize: 100,
     color: "#fff",
-    fontFamily: 'FontAwesome'
+    fontFamily: 'sqcolor',
+    marginBottom: 180
   }
 })

@@ -2,20 +2,21 @@ import { StyleSheet } from 'react-native'
 import Dimensions from 'Dimensions'
 
 export default StyleSheet.create({
+  wrapper: {
+  },
+
   actions: {
-    marginTop: 10,
     width: Dimensions.get('window').width * 0.9,
-    height: 100,
     flexDirection: 'row',
     justifyContent: 'space-between',
     flexWrap: 'wrap',
-    padding: 10,
+    padding: 5,
   },
 
   action: {
-    fontFamily: 'FontAwesome',
+    fontFamily: 'sqcolor',
     fontSize: 50,
     textAlign: 'center',
-    color: "#f5f6fa"
+    color: '#767686',
   }
 })

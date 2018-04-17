@@ -4,7 +4,7 @@ export default StyleSheet.create({
   gameLevel: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
     backgroundColor: '#1b1b35',
   },
 

@@ -5,16 +5,15 @@ import styles from "../styles/actions"
 import Action from "./action"
  
 const Actions = ({ undoTurn, restartGame, solveGame, history, userEventsDisabled }) => (
-  <View style={styles.actions}>
-    <Action action={undoTurn} disabled={history.length == 0 || userEventsDisabled}>
-      <Text style={styles.action}>&#xf0e2;</Text>
-    </Action>
-    <Action action={restartGame} disabled={userEventsDisabled}>
-      <Text style={styles.action}>&#xf021;</Text>
-    </Action>
-    <Action action={solveGame} disabled={userEventsDisabled}>
-      <Text style={styles.action}>&#xf050;</Text>
-    </Action>
+  <View style={styles.wrapper}>
+    <View style={styles.actions}>
+      <Action action={undoTurn} disabled={history.length == 0 || userEventsDisabled}>
+        <Text style={styles.action}>&#xe804;</Text>
+      </Action>
+      <Action action={solveGame} disabled={userEventsDisabled}>
+        <Text style={styles.action}>&#xe802;</Text>
+      </Action>
+    </View>
   </View>
 )
  

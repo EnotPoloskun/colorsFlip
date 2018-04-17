@@ -12,7 +12,7 @@ const CompleteModal = ({ visible, levelNumber, loadNextLevel }) => (
     style={{opacity: 0.9}}
   >
     <TouchableOpacity onPress={() => { loadNextLevel() }} activeOpacity={0.8} style={styles.modal}>
-      <Text style={styles.icon}>&#xf00c;</Text>
+      <Text style={styles.icon}>&#xe801;</Text>
     </TouchableOpacity>
   </Modal>
 )

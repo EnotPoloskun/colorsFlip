@@ -34,7 +34,7 @@ class GameLevel extends Component {
         <AdMobBanner
           style={styles.bottomBanner}
           adSize='smartBannerPortrait'
-          adUnitID='ca-app-pub-3940256099942544/2934735716'
+          adUnitID='ca-app-pub-9184926190157895/4981127197'
           testDevices={[AdMobBanner.simulatorId]}
         />
       </View>

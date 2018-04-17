@@ -17,7 +17,6 @@ class Cell extends Component {
       this.animateMargin()
     }
 
-    console.log(this.props.isGameSolved)
     if (this.props.isGameSolved && !prevProps.isGameSolved) {
       this.animateScale()
     }
