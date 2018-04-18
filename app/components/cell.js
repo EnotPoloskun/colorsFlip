@@ -1,9 +1,9 @@
-import React, { Component } from "react"
-import PropTypes from "prop-types"
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { View, TouchableWithoutFeedback, Animated, Easing } from 'react-native'
-import styles from "../styles/cell"
+import styles from 'ColorsFlip/app/styles/cell'
 
-const COLORS = ["green", "red", "orange"]
+const COLORS = ['green', 'red', 'orange']
  
 class Cell extends Component {
   constructor() {

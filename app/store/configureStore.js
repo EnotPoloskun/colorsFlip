@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
-import reducer from "../reducers/root"
+import reducer from "ColorsFlip/app/reducers/root"
 
 let initialState = {
   level: {}

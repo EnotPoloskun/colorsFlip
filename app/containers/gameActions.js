@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { undoTurn, restart, solveGame } from '../actions/field'
-import Actions from '../components/actions'
+import Actions from 'ColorsFlip/app/components/actions'
  
 const mapStateToProps = (state) => {
   return {

@@ -2,11 +2,13 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { View, StatusBar } from 'react-native'
 import { connect } from 'react-redux'
-import { loadLevel } from '../../actions/field'
-import styles from '../../styles/gameLevel'
-import GameField from '../../containers/gameField'
-import GameActions from '../../containers/gameActions'
-import CompleteModal from '../completeModal'
+import { loadLevel } from 'ColorsFlip/app/actions/field'
+import styles from 'ColorsFlip/app/styles/gameLevel'
+import GameField from 'ColorsFlip/app/containers/gameField'
+import GameActions from 'ColorsFlip/app/containers/gameActions'
+import CompleteModal from 'ColorsFlip/app/components/completeModal'
+import MenuModal from 'ColorsFlip/app/components/menuModal'
+import TopMenu from 'ColorsFlip/app/components/topMenu'
 import { AdMobBanner } from 'react-native-admob'
 
 class GameLevel extends Component {
@@ -28,7 +30,9 @@ class GameLevel extends Component {
     return (
       <View style={styles.gameLevel}>
         <StatusBar hidden={true}/>
+        <TopMenu/>
         <CompleteModal loadNextLevel={() => this.loadNextLevel()} />
+        <MenuModal />
         <GameField/>
         <GameActions/>
         <AdMobBanner

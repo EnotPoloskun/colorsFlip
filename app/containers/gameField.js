@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { makeTurn } from '../actions/field'
-import Field from '../components/field'
+import Field from 'ColorsFlip/app/components/field'
  
 const mapStateToProps = (state) => {
   return {

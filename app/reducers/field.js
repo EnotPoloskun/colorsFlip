@@ -1,13 +1,14 @@
-import { AsyncStorage } from 'react-native';
-import GameService from "../services/gameService"
-import levelsData from '../../levelsData.json';
+import { AsyncStorage } from 'react-native'
+import GameService from 'ColorsFlip/app/services/gameService'
+import levelsData from 'ColorsFlip/levelsData.json'
 import {
   MAKE_TURN,
   UNDO_TURN,
   RESTART,
   HIGHLIGHT,
   DISABLE_USER_EVENTS,
-  LOAD_LEVEL
+  LOAD_LEVEL,
+  TOGGLE_MENU
 } from "../actions/field"
 
 const makeTurn = (state, action) => {
@@ -70,6 +71,11 @@ const disableUserEvents = (state, action) => ({
   userEventsDisabled: action.disabled
 })
 
+const toggleMenu = (state, action) => ({
+  ...state,
+  isMenuOpen: !state.isMenuOpen
+})
+
 const loadLevel = (state, action) => ({
   ...levelsData[action.number],
   initialField: levelsData[action.number].field.map((row) => { return [...row] }),
@@ -77,7 +83,8 @@ const loadLevel = (state, action) => ({
   highlighted: undefined,
   userEventsDisabled: false,
   isGameSolved: false,
-  levelNumber: action.number
+  levelNumber: action.number,
+  isMenuOpen: true
 })
 
 const ACTION_HANDLERS = {
@@ -86,7 +93,8 @@ const ACTION_HANDLERS = {
   [RESTART] : restart,
   [HIGHLIGHT] : highlight,
   [DISABLE_USER_EVENTS] : disableUserEvents,
-  [LOAD_LEVEL] : loadLevel
+  [LOAD_LEVEL] : loadLevel,
+  [TOGGLE_MENU] : toggleMenu,
 }
 
 const reducer = (state = {}, action) => {

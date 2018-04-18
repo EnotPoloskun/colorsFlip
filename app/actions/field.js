@@ -4,6 +4,7 @@ export const RESTART = "RESTART"
 export const HIGHLIGHT = "HIGHLIGHT"
 export const DISABLE_USER_EVENTS = "DISABLE_USER_EVENTS"
 export const LOAD_LEVEL = "LOAD_LEVEL"
+export const TOGGLE_MENU = "TOGGLE_MENU"
 
 export const makeTurn = (row, column) => ({
   type: MAKE_TURN,
@@ -56,4 +57,8 @@ export const solveGame = () => (dispatch, getState) => {
 export const loadLevel = (levelNumber) => ({
   type: LOAD_LEVEL,
   number: levelNumber
+})
+
+export const toggleMenu = () => ({
+  type: TOGGLE_MENU,
 })

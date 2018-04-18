@@ -2,7 +2,7 @@ import thunk from 'redux-thunk'
 import configureStore from 'redux-mock-store'
 import {
   solveGame
-} from "../../app/actions/field"
+} from "ColorsFlip/app/actions/field"
 
 const mockStore = configureStore([thunk])
 
@@ -11,7 +11,9 @@ describe('(Actions) Field', () => {
 
     it('should call correct actions', () => {
       const store = mockStore({
-        solution: [{row: 1, column: 1}, { row: 2, column: 2 }, { row: 0, column: 0}],
+        level: {
+          solution: [{row: 1, column: 1}, { row: 2, column: 2 }, { row: 0, column: 0}],
+        }
       })
 
       jest.useFakeTimers()

@@ -1,8 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { View } from 'react-native'
-import styles from "../styles/field"
-import Row from "./row"
+import styles from "ColorsFlip/app/styles/field"
+import Row from "ColorsFlip/app/components/row"
  
 const Field = ({ onClick, field, highlighted, isGameSolved }) => (
   <View style={styles.field}>

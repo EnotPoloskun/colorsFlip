@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { View, TouchableHighlight, Text } from 'react-native'
-import styles from "../styles/action"
+import styles from "ColorsFlip/app/styles/action"
  
 const Action = ({ action, disabled = false, children }) => (
   <TouchableHighlight onPress={action} disabled={disabled}>

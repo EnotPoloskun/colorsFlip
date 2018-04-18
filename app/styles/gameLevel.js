@@ -9,8 +9,8 @@ export default StyleSheet.create({
   },
 
   bottomBanner: {
-    backgroundColor: "#1b1b35",
-    position: "absolute",
+    backgroundColor: '#1b1b35',
+    position: 'absolute',
     bottom: 0,
   }
 })

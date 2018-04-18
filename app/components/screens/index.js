@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import { Navigation } from 'react-native-navigation';
-import GameLevel from './gameLevel';
+import GameLevel from 'ColorsFlip/app/components/screens/gameLevel';
 
 const defaultNavigationStyles = {
   statusBarHidden: true,

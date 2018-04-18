@@ -1,21 +1,21 @@
-import deepFreeze from "deep-freeze"
-import reducer from "../../app/reducers/field"
+import deepFreeze from 'deep-freeze'
+import reducer from 'ColorsFlip/app/reducers/field'
 import {
   MAKE_TURN,
   UNDO_TURN,
   RESTART,
   HIGHLIGHT,
   DISABLE_USER_EVENTS
-} from "../../app/actions/field"
+} from '../../app/actions/field'
 
-describe("MAKE_TURN action", () => {
+describe('MAKE_TURN action', () => {
   const action = {
     type: MAKE_TURN,
     row: 1,
     column: 1,
   }
 
-  it("should handle MAKE_TURN", () => {
+  it('should handle MAKE_TURN', () => {
     const initialState = {
       colors: [1, 2, 3],
       field: [
@@ -40,7 +40,7 @@ describe("MAKE_TURN action", () => {
     })
   })
 
-  it("should handle MAKE_TURN and solve game", () => {
+  it('should handle MAKE_TURN and solve game', () => {
     const initialState = {
       colors: [1, 2, 3],
       field: [
@@ -67,8 +67,8 @@ describe("MAKE_TURN action", () => {
   })
 })
 
-describe("UNDO_TURN action", () => {
-  it("should handle UNDO_TURN", () => {
+describe('UNDO_TURN action', () => {
+  it('should handle UNDO_TURN', () => {
     const action = {
       type: UNDO_TURN,
     }
@@ -97,8 +97,8 @@ describe("UNDO_TURN action", () => {
   })
 })
 
-describe("RESTART action", () => {
-  it("should handle UNDO_TURN", () => {
+describe('RESTART action', () => {
+  it('should handle UNDO_TURN', () => {
     const action = {
       type: RESTART,
     }
@@ -132,12 +132,12 @@ describe("RESTART action", () => {
   })
 })
 
-describe("HIGHLIGHT action", () => {
+describe('HIGHLIGHT action', () => {
   const initialState = {
     highlighted: { row: 1, column: 1 }
   }
 
-  it("should handle HIGHLIGHT with row and column", () => {
+  it('should handle HIGHLIGHT with row and column', () => {
     const action = {
       type: HIGHLIGHT,
       row: 2,
@@ -152,7 +152,7 @@ describe("HIGHLIGHT action", () => {
     })
   })
 
-  it("should handle HIGHLIGHT without row and column", () => {
+  it('should handle HIGHLIGHT without row and column', () => {
     const action = {
       type: HIGHLIGHT,
     }
@@ -166,12 +166,12 @@ describe("HIGHLIGHT action", () => {
   })
 })
 
-describe("DISABLE_USER_EVENTS", () => {
+describe('DISABLE_USER_EVENTS', () => {
   const initialState = {
     userEventsDisabled: false
   }
 
-  it("should handle DISABLE_USER_EVENTS", () => {
+  it('should handle DISABLE_USER_EVENTS', () => {
     const action = {
       type: DISABLE_USER_EVENTS,
       disabled: true
@@ -182,6 +182,25 @@ describe("DISABLE_USER_EVENTS", () => {
     expect(state).toEqual({
       ...initialState,
       userEventsDisabled: true
+    })
+   })
+})
+
+describe('TOGGLE_MENU action', () => {
+  const initialState = {
+    isMenuOpen: false
+  }
+
+  it('should handle TOGGLE_MENU', () => {
+    const action = {
+      type: TOGGLE_MENU,
+    }
+
+    let state = reducer(deepFreeze(initialState), action)
+
+    expect(state).toEqual({
+      ...initialState,
+      isMenuOpen: true
     })
    })
 })

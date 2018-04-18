@@ -5,7 +5,7 @@ export default StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'rgba(30,28,57,0)'
+    backgroundColor: 'rgba(0, 0, 0, 0)'
   },
 
   icon: {

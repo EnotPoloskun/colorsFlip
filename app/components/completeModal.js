@@ -2,14 +2,13 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Text, TouchableOpacity, Modal } from 'react-native'
 import { connect } from 'react-redux'
-import styles from "../styles/completeModal"
+import styles from "ColorsFlip/app/styles/completeModal"
  
 const CompleteModal = ({ visible, levelNumber, loadNextLevel }) => (
   <Modal
     animationType="fade"
     transparent={true}
     visible={visible}
-    style={{opacity: 0.9}}
   >
     <TouchableOpacity onPress={() => { loadNextLevel() }} activeOpacity={0.8} style={styles.modal}>
       <Text style={styles.icon}>&#xe801;</Text>
