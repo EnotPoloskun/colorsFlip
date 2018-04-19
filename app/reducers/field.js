@@ -84,7 +84,7 @@ const loadLevel = (state, action) => ({
   userEventsDisabled: false,
   isGameSolved: false,
   levelNumber: action.number,
-  isMenuOpen: true
+  isMenuOpen: false
 })
 
 const ACTION_HANDLERS = {

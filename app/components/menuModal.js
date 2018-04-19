@@ -75,7 +75,7 @@ MenuModal.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    visible: !state.level.isMenuOpen,
+    visible: state.level.isMenuOpen,
   }
 }
 

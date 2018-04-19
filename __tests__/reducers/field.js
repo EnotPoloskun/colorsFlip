@@ -5,8 +5,22 @@ import {
   UNDO_TURN,
   RESTART,
   HIGHLIGHT,
-  DISABLE_USER_EVENTS
+  DISABLE_USER_EVENTS,
+  TOGGLE_MENU,
+  LOAD_LEVEL
 } from '../../app/actions/field'
+
+jest.mock('ColorsFlip/levelsData.json', () => ([
+  {
+    "field": [
+      [1, 1, 1],
+      [2, 2, 2],
+      [3, 3, 3]
+    ],
+    "colors": [1, 2, 3],
+    "solution": [{ "row": 1, "column": 1 }, { "row": 2, "column": 2 }, { "row": 0, "column": 0 }]
+  }
+]), { virtual: true })
 
 describe('MAKE_TURN action', () => {
   const action = {
@@ -203,4 +217,39 @@ describe('TOGGLE_MENU action', () => {
       isMenuOpen: true
     })
    })
+})
+
+describe('LOAD_LEVEL action', () => {
+  const initialState = {
+  }
+
+  it('should handle TOGGLE_MENU', () => {
+    const action = {
+      type: LOAD_LEVEL,
+      number: 0
+    }
+
+    let state = reducer(deepFreeze(initialState), action)
+
+    expect(state).toEqual({
+      field: [
+        [1, 1, 1],
+        [2, 2, 2],
+        [3, 3, 3]
+      ],
+      initialField: [
+        [1, 1, 1],
+        [2, 2, 2],
+        [3, 3, 3]
+      ],
+      colors: [1, 2, 3],
+      solution: [{ row: 1, column: 1 }, { row: 2, column: 2 }, { row: 0, column: 0 }],
+      history: [],
+      highlighted: undefined,
+      userEventsDisabled: false,
+      isGameSolved: false,
+      levelNumber: action.number,
+      isMenuOpen: false
+    })
+  })
 })
