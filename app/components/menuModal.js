@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
 import { Text, TouchableOpacity, Modal, View, Animated, Easing } from 'react-native'
-import { toggleMenu } from 'ColorsFlip/app/actions/field'
+import { toggleMenu, restart } from 'ColorsFlip/app/actions/field'
 import { connect } from 'react-redux'
 import Dimensions from 'Dimensions'
 import styles from "ColorsFlip/app/styles/menuModal"
@@ -43,6 +43,11 @@ class MenuModal extends Component {
     })
   }
 
+  restartGame() {
+    this.props.restart()
+    this.animateClose()
+  }
+
   render() {
     const movingRight = this.animatedWidthValue.interpolate({
       inputRange: [0, 1, 2],
@@ -57,9 +62,14 @@ class MenuModal extends Component {
       >
         <View style={styles.overlay}>
           <Animated.View style={[{ right: movingRight }, styles.menu]}>
-            <View style={styles.menuItem}>
+            <View style={styles.menuClose}>
               <TouchableOpacity onPress={() => this.animateClose()}>
                 <Text style={styles.closeIcon}>&#xe800;</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.menuButtonWrapper}>
+              <TouchableOpacity style={styles.menuButton} onPress={() => this.restartGame()}>
+                <Text style={styles.menuButtonText}>Restart</Text>
               </TouchableOpacity>
             </View>
           </Animated.View>
@@ -71,6 +81,8 @@ class MenuModal extends Component {
  
 MenuModal.propTypes = {
   visible: PropTypes.bool.isRequired,
+  toggleMenu: PropTypes.func.isRequired,
+  restart: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state) => {
@@ -81,6 +93,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
   toggleMenu: () => dispatch(toggleMenu()),
+  restart: () => dispatch(restart()),
 })
 
 export default connect(

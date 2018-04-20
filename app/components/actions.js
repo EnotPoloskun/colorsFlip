@@ -4,7 +4,7 @@ import { View, Text } from 'react-native'
 import styles from 'ColorsFlip/app/styles/actions'
 import Action from 'ColorsFlip/app/components/action'
  
-const Actions = ({ undoTurn, restartGame, solveGame, history, userEventsDisabled }) => (
+const Actions = ({ undoTurn, solveGame, history, userEventsDisabled }) => (
   <View style={styles.actions}>
     <Action action={undoTurn} disabled={history.length == 0 || userEventsDisabled}>
       <Text style={styles.action}>&#xe804;</Text>
@@ -17,7 +17,6 @@ const Actions = ({ undoTurn, restartGame, solveGame, history, userEventsDisabled
  
 Actions.propTypes = {
   undoTurn: PropTypes.func.isRequired,
-  restartGame: PropTypes.func.isRequired,
   solveGame: PropTypes.func.isRequired,
   userEventsDisabled: PropTypes.bool.isRequired,
 }
