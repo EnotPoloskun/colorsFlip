@@ -2,14 +2,14 @@ import React from "react"
 import PropTypes from "prop-types"
 import { connect } from 'react-redux'
 import { toggleMenu } from 'ColorsFlip/app/actions/field'
-import { View, TouchableHighlight, Text } from 'react-native'
+import { View, TouchableOpacity, Text } from 'react-native'
 import styles from "ColorsFlip/app/styles/topMenu"
 
 const TopMenu = ({ toggleMenu, disabled }) => (
   <View style={styles.wrapper}>
-    <TouchableHighlight onPress={toggleMenu} disabled={disabled}>
+    <TouchableOpacity onPress={toggleMenu} disabled={disabled}>
       <Text style={styles.icon}>&#xe803;</Text>
-    </TouchableHighlight>
+    </TouchableOpacity>
   </View>
 )
  

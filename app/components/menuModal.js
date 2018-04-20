@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
-import { Text, TouchableHighlight, Modal, View, Animated, Easing } from 'react-native'
+import { Text, TouchableOpacity, Modal, View, Animated, Easing } from 'react-native'
 import { toggleMenu } from 'ColorsFlip/app/actions/field'
 import { connect } from 'react-redux'
 import Dimensions from 'Dimensions'
@@ -44,9 +44,9 @@ class MenuModal extends Component {
   }
 
   render() {
-    const movingWidth = this.animatedWidthValue.interpolate({
+    const movingRight = this.animatedWidthValue.interpolate({
       inputRange: [0, 1, 2],
-      outputRange: [0, Dimensions.get('window').width * 0.66, 0]
+      outputRange: [-Dimensions.get('window').width * 0.66, 0, -Dimensions.get('window').width * 0.66]
     })
 
     return (
@@ -56,11 +56,11 @@ class MenuModal extends Component {
         visible={this.props.visible}
       >
         <View style={styles.overlay}>
-          <Animated.View style={[{ width: movingWidth }, styles.menu]}>
+          <Animated.View style={[{ right: movingRight }, styles.menu]}>
             <View style={styles.menuItem}>
-              <TouchableHighlight onPress={() => this.animateClose()}>
+              <TouchableOpacity onPress={() => this.animateClose()}>
                 <Text style={styles.closeIcon}>&#xe800;</Text>
-              </TouchableHighlight>
+              </TouchableOpacity>
             </View>
           </Animated.View>
         </View>

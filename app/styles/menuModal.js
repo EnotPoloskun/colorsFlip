@@ -11,7 +11,7 @@ export default StyleSheet.create({
     height: Dimensions.get('window').height,
     backgroundColor: '#1b1b35',
     position: 'absolute',
-    right: 0,
+    width: Dimensions.get('window').width * 0.66,
     paddingRight: 10,
     paddingTop: 10,
   },
