@@ -18,7 +18,7 @@ const makeTurn = (state, action) => {
   if (isGameSolved) {
     AsyncStorage.getItem('@LocalStore:lastSolvedRoundNumber')
       .then((lastRoundNumber) => {
-        if (lastRoundNumber == null && state.levelNumber > JSON.parse(lastRoundNumber)) {
+        if (lastRoundNumber == null || state.levelNumber > JSON.parse(lastRoundNumber)) {
           AsyncStorage.setItem('@LocalStore:lastSolvedRoundNumber', JSON.stringify(state.levelNumber))
         }
       })

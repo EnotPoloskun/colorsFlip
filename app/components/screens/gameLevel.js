@@ -23,7 +23,7 @@ class GameLevel extends Component {
         levelNumber: this.props.levelNumber + 1,
       },
       animationType: 'slide-horizontal'
-    });
+    })
   }
 
   render() {
