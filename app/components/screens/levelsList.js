@@ -45,8 +45,6 @@ class LevelsList extends Component {
   }
 
   render() {
-    // const lastSolvedRound = this.props.lastSolvedRound || 0
-    // console.log(Math.floor((lastSolvedRound + 1) / 20))
     if (this.props.lastSolvedRound) {
       return (
         <Pages startPage={Math.floor((this.props.lastSolvedRound + 1) / 20)} renderPager={this.renderPager.bind(this)}>

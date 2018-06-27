@@ -6,7 +6,7 @@ export default StyleSheet.create({
     width: Dimensions.get('window').width * 0.20,
     height: Dimensions.get('window').width * 0.20,
     margin: 5,
-    justifyContent: "center",
+    justifyContent: 'center',
     borderRadius: 8,
   },
 
@@ -23,9 +23,10 @@ export default StyleSheet.create({
   },
 
   levelText: {
-    textAlign: "center",
+    textAlign: 'center',
     fontSize: 30,
     color: '#fff',
+    fontFamily: 'NunitoSans-ExtraBold',
   },
 
   levelTextDisabled: {

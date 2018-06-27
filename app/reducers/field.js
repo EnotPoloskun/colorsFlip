@@ -8,7 +8,8 @@ import {
   HIGHLIGHT,
   DISABLE_USER_EVENTS,
   LOAD_LEVEL,
-  TOGGLE_MENU
+  TOGGLE_MENU,
+  RECEIVE_REWARD,
 } from "../actions/field"
 
 const makeTurn = (state, action) => {
@@ -84,7 +85,13 @@ const loadLevel = (state, action) => ({
   userEventsDisabled: false,
   isGameSolved: false,
   levelNumber: action.number,
-  isMenuOpen: false
+  isMenuOpen: false,
+  rewardAdWatched: false,
+})
+
+const receiveReward = (state, action) => ({
+  ...state,
+  rewardAdWatched: true,
 })
 
 const ACTION_HANDLERS = {
@@ -95,6 +102,7 @@ const ACTION_HANDLERS = {
   [DISABLE_USER_EVENTS] : disableUserEvents,
   [LOAD_LEVEL] : loadLevel,
   [TOGGLE_MENU] : toggleMenu,
+  [RECEIVE_REWARD]: receiveReward,
 }
 
 const reducer = (state = {}, action) => {

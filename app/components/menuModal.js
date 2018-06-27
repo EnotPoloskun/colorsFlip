@@ -48,6 +48,14 @@ class MenuModal extends Component {
     this.animateClose()
   }
 
+  goToMenu() {
+    this.props.toggleMenu()
+    this.props.navigator.push({
+      screen: 'game.LevelsList',
+      animationType: 'slide-horizontal'
+    })
+  }
+
   render() {
     const movingRight = this.animatedWidthValue.interpolate({
       inputRange: [0, 1, 2],
@@ -72,6 +80,12 @@ class MenuModal extends Component {
                 <Text style={styles.menuButtonText}>Restart</Text>
               </TouchableOpacity>
             </View>
+
+            <View style={styles.menuButtonWrapper}>
+              <TouchableOpacity style={styles.menuButton} onPress={() => this.goToMenu()}>
+                <Text style={styles.menuButtonText}>Go To Menu</Text>
+              </TouchableOpacity>
+            </View>
           </Animated.View>
         </View>
       </Modal>
@@ -83,6 +97,7 @@ MenuModal.propTypes = {
   visible: PropTypes.bool.isRequired,
   toggleMenu: PropTypes.func.isRequired,
   restart: PropTypes.func.isRequired,
+  navigator: PropTypes.object.isRequired,
 }
 
 const mapStateToProps = (state) => {

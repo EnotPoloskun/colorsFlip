@@ -46,6 +46,7 @@ export default StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     color: '#fff',
+    fontFamily: 'NunitoSans-ExtraBold',
   },
 
   closeIcon: {

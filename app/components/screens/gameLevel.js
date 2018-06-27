@@ -2,18 +2,18 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { View, StatusBar } from 'react-native'
 import { connect } from 'react-redux'
-import { loadLevel } from 'ColorsFlip/app/actions/field'
+import { loadLevel, loadRewardAd } from 'ColorsFlip/app/actions/field'
 import styles from 'ColorsFlip/app/styles/gameLevel'
 import GameField from 'ColorsFlip/app/containers/gameField'
 import GameActions from 'ColorsFlip/app/containers/gameActions'
 import CompleteModal from 'ColorsFlip/app/components/completeModal'
 import MenuModal from 'ColorsFlip/app/components/menuModal'
 import TopMenu from 'ColorsFlip/app/components/topMenu'
-import { AdMobBanner } from 'react-native-admob'
 
 class GameLevel extends Component {
   componentWillMount() {
     this.props.loadLevel(this.props.levelNumber)
+    this.props.loadRewardAd()
   }
 
   loadNextLevel() {
@@ -32,22 +32,17 @@ class GameLevel extends Component {
         <StatusBar hidden={true}/>
         <TopMenu/>
         <CompleteModal loadNextLevel={() => this.loadNextLevel()} />
-        <MenuModal />
+        <MenuModal navigator={this.props.navigator} />
         <GameField/>
         <GameActions/>
-        <AdMobBanner
-          style={styles.bottomBanner}
-          adSize='smartBannerPortrait'
-          adUnitID='ca-app-pub-9184926190157895/4981127197'
-          testDevices={[AdMobBanner.simulatorId]}
-        />
       </View>
     )
   }
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  loadLevel: (number) => dispatch(loadLevel(number))
+  loadLevel: (number) => dispatch(loadLevel(number)),
+  loadRewardAd: () => dispatch(loadRewardAd()),
 })
 
 GameLevel.propTypes = {
