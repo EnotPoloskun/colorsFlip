@@ -81,6 +81,7 @@ const loadLevel = (state, action) => ({
   ...levelsData[action.number],
   initialField: levelsData[action.number].field.map((row) => { return [...row] }),
   history: [],
+  goal: levelsData[action.number].goal,
   highlighted: undefined,
   userEventsDisabled: false,
   isGameSolved: false,

@@ -7,7 +7,8 @@ import {
   HIGHLIGHT,
   DISABLE_USER_EVENTS,
   TOGGLE_MENU,
-  LOAD_LEVEL
+  LOAD_LEVEL,
+  RECEIVE_REWARD,
 } from '../../app/actions/field'
 
 jest.mock('ColorsFlip/levelsData.json', () => ([
@@ -216,7 +217,7 @@ describe('TOGGLE_MENU action', () => {
       ...initialState,
       isMenuOpen: true
     })
-   })
+  })
 })
 
 describe('LOAD_LEVEL action', () => {
@@ -249,7 +250,27 @@ describe('LOAD_LEVEL action', () => {
       userEventsDisabled: false,
       isGameSolved: false,
       levelNumber: action.number,
+      rewardAdWatched: false,
       isMenuOpen: false
+    })
+  })
+})
+
+describe('RECEIVE_REWARD action', () => {
+  it('should handle RECEIVE_REWARD', () => {
+    const initialState = {
+      rewardAdWatched: false
+    }
+
+    const action = {
+      type: RECEIVE_REWARD,
+    }
+
+    let state = reducer(deepFreeze(initialState), action)
+
+    expect(state).toEqual({
+      ...initialState,
+      rewardAdWatched: true,
     })
   })
 })

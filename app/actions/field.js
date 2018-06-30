@@ -60,10 +60,12 @@ export const solveGame = () => (dispatch, getState) => {
 export const loadRewardAd = () => (dispatch, getState) => {
   AdMobRewarded.setAdUnitID('ca-app-pub-3940256099942544/1712485313')
   AdMobRewarded.setTestDevices([AdMobRewarded.simulatorId])
+  AdMobRewarded.removeAllListeners()
 
   AdMobRewarded.addEventListener('rewarded', () => {
     dispatch(receiveReward())
   })
+
   AdMobRewarded.addEventListener('adClosed', () => {
     if (getState().level.rewardAdWatched) {
       dispatch(solveGame())
